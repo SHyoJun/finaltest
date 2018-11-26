@@ -2,5 +2,5 @@
 #define __MAZE_H__
 
 int getch();
-
+void item_switch();
 #endif
