@@ -26,6 +26,19 @@ void map_clear(){
   }
 }
 
+void item_break(User *u){
+  int x,y;
+  x=u->x;
+  y=u->y;
+  if(map[y-1][x]==1)map[y-1][x]=0;
+  if(map[y+1][x]==1)map[y+1][x]=0;
+  if(map[y][x-1]==1)map[y][x-1]=0;
+  if(map[y][x+1]==1)map[y][x+1]=0;
+
+  
+  map_print();
+}
+
 void item_switch(){
   int temp;
   
