@@ -16,6 +16,10 @@ int getch(){
   return ch;
 }
 
+void map_clear(){
+  
+}
+
 void item_switch(){
   int temp;
   
