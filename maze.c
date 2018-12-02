@@ -54,3 +54,50 @@ void item_switch(){
   
   map_print();
 }
+Queue *create_queue(){
+  Queue *n;
+
+  n=(Queue *)malloc(sizeof(Queue));
+  n->data=0;
+  n->link=NULL;
+  return n;
+}
+
+void Enqueue(Queue *q,int num){
+  Queue *n,*p;
+  p=q;
+  n=create_queue();
+  n->data=num;
+
+  n->link=p->link;
+  p->link=n;
+}
+
+void sub_Enqueue(Queue *q,int num){
+  Queue *n,*p;
+  p=q;
+  n=create_queue();
+  n->data=num;
+  while(p->link!=NULL){
+    p=p->link;
+  }
+  p->link=n;
+}
+
+int Dequeue(Queue *q){
+  Queue *p,*t;
+  int tmp;
+  p=q;
+  while(p->link!=NULL){
+    t=p;
+    p=p->link;
+  }
+  if(p->data==0){
+    return 0;
+  }else{
+    tmp=p->data;
+    free(p);
+    t->link=NULL;
+    return tmp;
+  }
+}
