@@ -6,4 +6,8 @@ void map_clear();
 void item_break(User *);
 void item_wall(User *);
 void item_switch();
+Queue *create_queue();
+void Enqueue(Queue *,int );
+void sub_Enqueue(Queue *,int );
+int Dequeue(Queue *);
 #endif
