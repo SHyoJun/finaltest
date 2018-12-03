@@ -13,7 +13,6 @@ int main(){
   system("setterm -cursor off");
 
   map_set();
-  //map_print();
 
   res=pthread_create(&thread[0],NULL,user_thread,NULL);
   if(res!=0) printf("User thread create failed!!\n");
