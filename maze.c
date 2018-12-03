@@ -197,6 +197,34 @@ void map_print(){
   printf("\nspace:Use Itemp         q:Exit Game\n");
 }
 
+int move_check(User *u){
+  int result=0;
+
+  switch(u->dir){
+    case 0:
+      if(u->y-1<0) result=-1; 
+      else result=map[u->y-1][u->x];
+      break;
+    case 1:
+      if(u->x+1>19) result=-1;
+      else result=map[u->y][u->x+1];
+      break;
+    case 2:
+      if(u->y+1>19) result=-1;
+      else result=map[u->y+1][u->x];
+      break;
+    case 3:
+      if(u->x-1<0) result=-1;
+      else result=map[u->y][u->x-1];
+      break;
+    default:
+      break;
+  }
+  return result;
+}
+
+
+
 void item_break(User *u){
   int x,y;
   x=u->x;
@@ -205,6 +233,19 @@ void item_break(User *u){
   if(map[y+1][x]==1)map[y+1][x]=0;
   if(map[y][x-1]==1)map[y][x-1]=0;
   if(map[y][x+1]==1)map[y][x+1]=0;
+
+  
+  map_print();
+}
+
+void item_wall(User *u){
+  int x,y;
+  x=u->x;
+  y=u->y;
+  if(map[y-1][x]==0)map[y-1][x]=1;
+  if(map[y+1][x]==0)map[y+1][x]=1;
+  if(map[y][x-1]==0)map[y][x-1]=1;
+  if(map[y][x+1]==0)map[y][x+1]=1;
 
   
   map_print();
@@ -293,6 +334,16 @@ void *user_thread(){
   }
   pthread_exit(NULL);
 }
+
+void *bot_thread(){
+  while(end){
+    move_character(bot);
+    
+  }
+
+  pthread_exit(NULL);
+}
+
 
 void *goal_thread(){
   int i;
