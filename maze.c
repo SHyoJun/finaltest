@@ -102,7 +102,47 @@ void sub_Enqueue(Queue *q,int num){
   }
   p->link=n;
 }
+void *item_thread(){
+  int i,r,tmp;
 
+  while(end){
+    r=rand()%20+10;
+    for(i=0;i<r;i++){
+      sleep(1);
+      if(end==0)break;
+    }
+    tmp=Dequeue(Q[1]);
+    switch(tmp){
+      case 6:
+	item_jump(bot);
+	break;
+      case 7:
+	item_break(bot);
+	break;
+      case 8:
+	item_wall(bot);
+	break;
+      case 9:
+	item_switch();
+	break;
+      default:
+	break;
+    }
+  }
+  
+  pthread_exit(NULL);
+}
+void *goal_thread(){
+  int i;
+  while(end){
+    goal_set();
+    for(i=0;i<15;i++){
+      sleep(1);
+      if(end==0)break;
+    }
+  }
+  pthread_exit(NULL);
+}
 int Dequeue(Queue *q){
   Queue *p,*t;
   int tmp;
