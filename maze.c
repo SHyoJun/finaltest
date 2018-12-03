@@ -284,6 +284,16 @@ void *item_thread(){
   
   pthread_exit(NULL);
 }
+
+void *user_thread(){
+  while(end){
+    move_character(user);
+    
+    map_print();
+  }
+  pthread_exit(NULL);
+}
+
 void *goal_thread(){
   int i;
   while(end){
