@@ -16,6 +16,17 @@ int getch(){
   return ch;
 }
 
+User *create_user(int tx,int ty,int tname){
+  User *n;
+  n=(User *)malloc(sizeof(User));
+  n->x=tx;
+  n->y=ty;
+  n->dir=rand()%4;
+  n->name=tname;
+  return n;
+}
+
+
 void map_clear(){
   int i,j;
 
