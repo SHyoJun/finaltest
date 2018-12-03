@@ -87,6 +87,105 @@ void map_set(){
   Q[1]=create_queue();
 }
 
+void map_print(){
+  int i,j;
+  Queue *p;
+
+  system("clear");
+
+  for(i=0;i<20;i++){
+    for(j=0;j<20;j++){
+      switch(map[i][j]){
+	case 0:
+		printf("  ");
+		break;
+	case 1:
+		printf("□ ");
+		break;
+	case 2:
+		printf("♥ ");
+		break;
+	case 3:
+		printf("♠ ");
+		break;
+	case 4:
+		printf("★ ");
+		break;
+	case 6:
+		printf("ⓙ ");
+		break;
+	case 7:
+		printf("ⓑ ");
+		break;
+	case 8:
+		printf("ⓦ ");
+		break;
+	case 9:
+		printf("ⓢ ");
+		break;
+	default:
+		break;
+      }
+    }
+    if(i==9 || i==10){
+      if(i==9){
+	switch(user->dir){
+	  case 0:
+	    printf("\t↑  ");
+	    break;
+	  case 1:
+	    printf("\t→  ");
+	    break;
+	  case 2:
+	    printf("\t↓  ");
+	    break;
+	  case 3:
+	    printf("\t←  ");
+	    break;
+	}
+	printf("User : ");
+      }else{
+	switch(bot->dir){
+	  case 0:
+	    printf("\t↑  ");
+	    break;
+	  case 1:
+	    printf("\t→  ");
+	    break;
+	  case 2:
+	    printf("\t↓  ");
+	    break;
+	  case 3:
+	    printf("\t←  ");
+	    break;
+	}
+	printf("Bot : ");
+      }p=Q[i-9];
+      while(p!=NULL){
+	switch(p->data){
+	  case 6:
+	    printf("ⓙ ┃ ");
+	    break;
+	  case 7:
+	    printf("ⓑ ┃ ");
+	    break;
+	  case 8:
+	    printf("ⓦ ┃ ");
+	    break;
+	  case 9:
+	    printf("ⓢ ┃ ");
+	    break;
+	  default:
+	    break;
+	}
+	p=p->link;
+      }
+    }
+    printf("\n");
+  }
+  printf("\nspace:Use Itemp         q:Exit Game\n");
+}
+
 void item_break(User *u){
   int x,y;
   x=u->x;
