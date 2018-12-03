@@ -64,6 +64,29 @@ void user_set(){
   }
 }
 
+void map_set(){
+  int t=0,i,r1,r2,j;
+  
+  map_clear();
+  for(i=0;i<160;i++){
+    r1=rand()%20;
+    r2=rand()%20;
+    if(map[r1][r2]==0)map[r1][r2]=1;
+    else i--;
+  }
+  while(t<6){
+    r1=rand()%20;
+    r2=rand()%20;
+    if(map[r1][r2]==0){
+      map[r1][r2]=rand()%4+6;
+      t++;
+    }
+  }
+  user_set();
+  Q[0]=create_queue();
+  Q[1]=create_queue();
+}
+
 void item_break(User *u){
   int x,y;
   x=u->x;
