@@ -45,6 +45,25 @@ void goal_set(){
   }
 }
 
+void user_set(){
+  int x,y;
+  int cnt=0;
+  while(cnt<2){
+    x=rand()%20;
+    y=rand()%20;
+    if(map[y][x]==0){
+      if(cnt==0){
+	map[y][x]=2;
+	user=create_user(x,y,2);
+      }else{
+	map[y][x]=3;
+	bot=create_user(x,y,3);
+      }
+      cnt++;
+    }
+  }
+}
+
 void item_break(User *u){
   int x,y;
   x=u->x;
