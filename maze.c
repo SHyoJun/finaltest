@@ -26,6 +26,25 @@ void map_clear(){
   }
 }
 
+void goal_set(){
+  int x,y;
+
+  for(x=0;x<20;x++){
+    for(y=0;y<20;y++){
+      if(map[y][x]==4)map[y][x]=0;
+    }
+  }
+
+  while(1){
+    x=rand()%20;
+    y=rand()%20;
+    if(map[y][x]==0){
+      map[y][x]=4;
+      break;
+    }
+  }
+}
+
 void item_break(User *u){
   int x,y;
   x=u->x;
