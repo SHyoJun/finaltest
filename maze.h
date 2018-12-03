@@ -4,6 +4,7 @@
 int getch();
 void map_clear();
 void goal_set();
+void map_set();
 void item_break(User *);
 void item_wall(User *);
 void item_switch();
