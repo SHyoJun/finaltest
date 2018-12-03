@@ -2,6 +2,7 @@
 #define __MAZE_H__
 
 int getch();
+User *create_user(int ,int ,int );
 void map_clear();
 void goal_set();
 void map_set();
