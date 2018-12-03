@@ -10,4 +10,6 @@ Queue *create_queue();
 void Enqueue(Queue *,int );
 void sub_Enqueue(Queue *,int );
 int Dequeue(Queue *);
+void *item_thread(); 
+void *goal_thread();
 #endif
