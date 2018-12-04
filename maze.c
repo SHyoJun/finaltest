@@ -225,6 +225,8 @@ int move_check(User *u){
 
 
 
+
+
 void item_break(User *u){
   int x,y;
   x=u->x;
@@ -295,6 +297,57 @@ void sub_Enqueue(Queue *q,int num){
   }
   p->link=n;
 }
+
+void move_character(User *u){
+  int data,tdir;
+  
+  tdir=u->dir;
+  if(position_check(u)){
+    u->dir=tdir;
+    sleep(1);
+  }else{
+  u->dir=tdir;
+  sleep(1);
+  u->dir=rand()%4;
+  data=move_check(u);
+  while(data==2 || data==3 || data==1 || data==-1){
+    u->dir=rand()%4;
+    data=move_check(u);
+  }
+  switch(data){
+    case 0:
+      move(u);
+      break;
+    case 4:
+      move(u);
+      end=0;
+      break;
+    case 6:
+      move(u);
+      if(u->name==2)Enqueue(Q[0],6);
+      else Enqueue(Q[1],6);
+      break;
+    case 7:
+      move(u);
+      if(u->name==2)Enqueue(Q[0],7);
+      else Enqueue(Q[1],7);
+      break;
+    case 8:
+      move(u);
+      if(u->name==2)Enqueue(Q[0],8);
+      else Enqueue(Q[1],8);
+      break;
+    case 9:
+      move(u);
+      if(u->name==2)Enqueue(Q[0],9);
+      else Enqueue(Q[1],9);
+      break;
+  }
+  }
+}
+
+
+
 void *item_thread(){
   int i,r,tmp;
 
@@ -339,16 +392,6 @@ void *bot_thread(){
   while(end){
     move_character(bot);
     
-  }
-
-  pthread_exit(NULL);
-}
-
-void *bot_thread(){
-  while(end){
-    move_character(bot);
-    
-    //map_print();
   }
 
   pthread_exit(NULL);
