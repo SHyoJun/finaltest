@@ -344,6 +344,16 @@ void *bot_thread(){
   pthread_exit(NULL);
 }
 
+void *bot_thread(){
+  while(end){
+    move_character(bot);
+    
+    //map_print();
+  }
+
+  pthread_exit(NULL);
+}
+
 
 void *goal_thread(){
   int i;
