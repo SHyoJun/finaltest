@@ -298,6 +298,44 @@ void sub_Enqueue(Queue *q,int num){
   p->link=n;
 }
 
+void move(User *u){
+  map[u->y][u->x]=0;
+  switch(u->dir){
+    case 0:
+      map[u->y-1][u->x]=u->name;
+      u->y--;
+      break;
+    case 1:
+      map[u->y][u->x+1]=u->name;
+      u->x++;
+      break;
+    case 2:
+      map[u->y+1][u->x]=u->name;
+      u->y++;
+      break;
+    case 3:
+      map[u->y][u->x-1]=u->name;
+      u->x--;
+      break;
+  }
+}
+
+int position_check(User *u){
+  int i,result=1,tmp;
+  User *p;
+  p=u;
+
+  for(i=0;i<4;i++){
+    p->dir=i;
+    tmp=move_check(p);
+    if(tmp!=2 && tmp!=3 && tmp!=1 && tmp!=-1) result=0;
+  }
+
+  return result;
+}
+
+
+
 void move_character(User *u){
   int data,tdir;
   
