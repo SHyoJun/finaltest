@@ -9,14 +9,15 @@ maze.c 로 입력받아 미로 도착지점 찾기 프로그래밍을 수행
 6.도착지점은 일정시간이 지나면 쓰레드에 의해 랜덤위치로 이동 된다.
 7.봇, 사용자 모두 랜덤으로 움직인다.(방향 설정 불가)
 
-아이템 구성
+
+# 아이템 구성
 ⓙ 뛰어넘기 : 벽이 있을 경우 이동방향에 따라 사용하면 벽을 뛰어넘을 수 있다.
 거리 제한이 없으며 거리 최초 도착지점이 맵 바깥이라면 점프하지 않고 아이템이 사라지고 제자리에 남는다.
 ⓑ 벽 제거 : 사용자의 상하좌우 생성되어 있는 벽을 부순다. 벽의 유무와 상관없이 상하좌우 한칸씩 부순다.
 ⓦ 벽 쌓기 : 사용자의 상하좌우에 벽을 하나씩 생성시킨다. 아래 설명할 위치바꾸기와 같이 쓰면 효과적이다.
 ⓢ 위치반전 : 아이템을 사용하면 봇과 위치를 바꾼다.
 
-코딩 Overview
+# 코딩 Overview
 int move_check(int temp){
   int result=0;
   if(temp==1){
@@ -62,7 +63,7 @@ int move_check(int temp){
 
 
 
-Develop Overview
+# Develop Overview
 
 ProjectName : (Queue+Thread) 미로찾기
 Corder : 박정민 / 송효준 / 이요나
@@ -75,14 +76,14 @@ TextEditor : VIM - Vi IMproved 8.1
 Encording : UTF-8 (Linux Basic)
 Compiler : GCC 6.5
 
-컴파일
+# 컴파일
 
 리눅스 환경에서 세 파일을 모두 같은 폴더에 위치시킨
 「gcc -o main main.c -lpthread」
 라는 명령어로 pthread 라이브러리를 추가시켜 주어야 한다.
 
 
-Description
+# Description
 int getch() : 키보드 입력하면 엔터키없이 바로 인식하는 함수
 create_user() : User구조체 생성하고 포인터형으로 리턴
 int move_check() : 첫 매개변수가 user포인터.다음위치값 리턴(배열범위초과한경우 -1리턴)
