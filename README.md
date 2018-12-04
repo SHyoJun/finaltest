@@ -29,6 +29,7 @@ maze.c 로 입력받아 미로 도착지점 찾기 프로그래밍을 수행
 ⓢ 위치반전 : 아이템을 사용하면 봇과 위치를 바꾼다.
 
 # 코딩 Overview
+# 이동가능 구역 확인 함수
 int move_check(int temp){
 
   int result=0;
@@ -39,25 +40,25 @@ int move_check(int temp){
     
       case 0:
       
-       if(map[user.y-1][user.x]!=1 && map[user.y-1][user.x]!=3)result=1;
+       if(map[user.y-1][user.x]!=1 && map[user.y-1][user.x]!=3)result=1; // 북쪽 검사
        
        break;
        
       case 1:
       
-       if(map[user.y][user.x+1]!=1 && map[user.y][user.x+1]!=3)result=1;
+       if(map[user.y][user.x+1]!=1 && map[user.y][user.x+1]!=3)result=1; // 동쪽 검사
        
        break;
        
       case 2:
       
-       if(map[user.y+1][user.x]!=1 && map[user.y+1][user.x]!=3)result=1;
+       if(map[user.y+1][user.x]!=1 && map[user.y+1][user.x]!=3)result=1; // 남쪽 검사
        
        break;
        
       case 3:
       
-       if(map[user.y][user.x-1]!=1 && map[user.y][user.x-1]!=3)result=1;
+       if(map[user.y][user.x-1]!=1 && map[user.y][user.x-1]!=3)result=1; // 서쪽 검사
        
        break;
        
@@ -75,25 +76,25 @@ int move_check(int temp){
     
       case 0:
       
-       if(map[bot.y-1][bot.x]!=1 && map[bot.y-1][bot.x]!=2)result=1;
+       if(map[bot.y-1][bot.x]!=1 && map[bot.y-1][bot.x]!=2)result=1; // 북쪽 검사
        
        break;
        
      case 1:
      
-  if(map[bot.y][bot.x+1]!=1 && map[bot.y][bot.x+1]!=2)result=1;
+  if(map[bot.y][bot.x+1]!=1 && map[bot.y][bot.x+1]!=2)result=1; // 동쪽 검사
   
        break;
        
      case 2:
      
-     if(map[bot.y+1][bot.x]!=1 && map[bot.y+1][bot.x]!=2)result=1;
+     if(map[bot.y+1][bot.x]!=1 && map[bot.y+1][bot.x]!=2)result=1; // 남쪽 검사
      
        break;
        
 	 case 3:
 	 
-       if(map[bot.y][bot.x-1]!=1 && map[bot.y][bot.x-1]!=2)result=1;
+       if(map[bot.y][bot.x-1]!=1 && map[bot.y][bot.x-1]!=2)result=1; // 서쪽 검사
        
        break;
        
