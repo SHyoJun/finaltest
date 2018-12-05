@@ -154,7 +154,7 @@ int position_check() : 상하좌우가 벽or상대캐릭터or범위바깥 으로
 
 move_character() : 이동함수 전체사용(move들어간 함수들 이용해서 이동작업처리).첫 매개변수가 user포인터
 
-create_queue() : Queue구조세 생성하고 포인터형으로리턴
+create_queue() : Queue구조 생성하고 포인터형으로리턴
 
 Enqueue() : 아이템먹으면 큐에삽입.2번째 매개변수가 아이템(위에 번호)
 
