@@ -122,6 +122,8 @@ Organiz. : 조선대학교
 
 Major : 컴퓨터 공학과
 
+contact : wjdals8976@naver.com/ random78@daum.net / thdgywns12@naver.com
+
 DateTime : 2018.12
 
 Develop OS : ubuntu
