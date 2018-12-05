@@ -159,3 +159,5 @@ create_queue() : Queue구조체 생성하고 포인터형으로리턴
 Enqueue() : 아이템먹으면 큐에삽입.2번째 매개변수가 아이템(위에 번호)
 
 예시 : https://blog.naver.com/snrkslfo/221412835743
+
+깃허브 오픈소스 참고 : https://github.com/uyu423/Maze-Pathfinder-using-Stack-
